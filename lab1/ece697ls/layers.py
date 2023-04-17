@@ -29,7 +29,9 @@ def affine_forward(x, w, b):
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
     print(x)
-
+    x_ = x.reshape((len(x), len(x[0]) * len(x[0][0]) * len(x[0][0][0])))
+    print(x_)
+    
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
     #                             END OF YOUR CODE                            #
