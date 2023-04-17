@@ -35,7 +35,7 @@ def affine_forward(x, w, b):
     print("x__\n", x__)
     print("w\n", w, len(w))
 
-    print(np.matmul(w, x__))
+    print(np.matmul(w, x__.transpose()))
     
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
