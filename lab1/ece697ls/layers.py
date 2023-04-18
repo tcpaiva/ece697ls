@@ -36,7 +36,8 @@ def affine_forward(x, w, b):
     print("w\n", w, len(w))
 
     for jj in x__:
-        print(np.matmul(w, jj))
+        aux = np.matmul(w, jj)
+        print("WX\n", aux, len(aux), len(aux[0]))
         
     
     
