@@ -31,12 +31,12 @@ def affine_forward(x, w, b):
     print("x\n", x)
     x_ = x.reshape((len(x), len(x[0]) * len(x[0][0]) * len(x[0][0][0])))
     print("x_\n", x_)
-    x__ = x.reshape((len(x_),  len(x_[0])//len(b), len(b)))
+    x__ = x.reshape((len(x_), len(b), len(x_[0])//len(b)))
     print("x__\n", x__)
     print("w\n", w, len(w))
 
     for jj in x__:
-        print(np.matmul(w.transpose(), jj))
+        print(np.matmul(w, jj))
         
     
     
