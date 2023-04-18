@@ -28,23 +28,9 @@ def affine_forward(x, w, b):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    print("x\n", x)
     x_ = x.reshape((len(x), len(x[0]) * len(x[0][0]) * len(x[0][0][0])))
-    print("x_\n", x_)
-    # x__ = x.reshape((len(x_), len(b), len(x_[0])//len(b)))
-    # print("x__\n", x__)
-    # print("w\n", w, len(w))
-    # 
-    # for jj in x__:
-    #     aux = np.matmul(w, jj)
-    #     print("WX\n", aux, len(aux), len(aux[0]))
-
     aux = np.matmul(w.transpose(), x_.transpose())
-    print("aux\n", aux)
     out = aux.transpose() + b
-    print("Y\n", out)
-        
-    
     
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
@@ -77,7 +63,12 @@ def affine_backward(dout, cache):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    pass
+    ## h = 1e-5
+    ## x_ = x.reshape((len(x), len(x[0]) * len(x[0][0]) * len(x[0][0][0])))
+    ## for jj in range(len(x_)):
+    ##     for kk in range(len(x_[jj])):
+    ##         x_[jj, kk] = x_[jj, kk]+h
+            
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
