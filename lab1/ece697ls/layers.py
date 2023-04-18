@@ -39,7 +39,7 @@ def affine_forward(x, w, b):
     #     aux = np.matmul(w, jj)
     #     print("WX\n", aux, len(aux), len(aux[0]))
 
-    aux = np.matmul(w.transpose(), x_.transpose()) + b.transpose()
+    aux = np.matmul(w.transpose(), x_.transpose())
     print("aux\n", aux)
     out = aux.transpose()
     print("Y\n", out)
