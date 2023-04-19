@@ -63,11 +63,18 @@ def affine_backward(dout, cache):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    ## h = 1e-5
-    ## x_ = x.reshape((len(x), len(x[0]) * len(x[0][0]) * len(x[0][0][0])))
-    ## for jj in range(len(x_)):
-    ##     for kk in range(len(x_[jj])):
-    ##         x_[jj, kk] = x_[jj, kk]+h
+    h = 1e-5
+
+    dx = np.zeros_like(x)
+    with np.nditer(x, flags=["multi_index"], op_flags=['readwrite']) as it:
+        idx = it.multi_index
+        old_value = x[idx]
+        x[idx] = old_value + h
+        pos, _ = affine_forward(x, w, b)
+        x[idx] = old_value - h
+        neg, _ = affine_forward(x, w, b)
+        x[idx] = old_value
+        dx[idx] = np.sum((pos - neg) * dout) / (2*h)
             
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
