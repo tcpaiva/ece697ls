@@ -63,7 +63,7 @@ def affine_backward(dout, cache):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    h = 1e-5
+    h = 1e-6
 
     dx = np.zeros_like(x)
     with np.nditer(x, flags=["multi_index"], op_flags=['readwrite']) as it:
