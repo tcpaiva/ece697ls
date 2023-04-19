@@ -28,7 +28,7 @@ def affine_forward(x, w, b):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    x_ = x.reshape((len(x), len(x[0]) * len(x[0][0]) * len(x[0][0][0])))
+    x_ = x.reshape(len(x), -1)
     aux = np.matmul(w.transpose(), x_.transpose())
     out = aux.transpose() + b
     
