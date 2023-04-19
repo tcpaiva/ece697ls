@@ -69,12 +69,11 @@ def affine_backward(dout, cache):
     with np.nditer(x, flags=["multi_index"], op_flags=['readwrite']) as it:
         for k in it:
             idx = it.multi_index
-            old_value = x[idx]
-            x[idx] = old_value + h
+            x[idx] = k + h
             pos, _ = affine_forward(x, w, b)
-            x[idx] = old_value - h
+            x[idx] = k - h
             neg, _ = affine_forward(x, w, b)
-            x[idx] = old_value
+            x[idx] = k
             dx[idx] = np.sum((pos - neg) * dout) / (2*h)
 
             print('k', k)
