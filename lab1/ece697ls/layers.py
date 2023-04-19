@@ -127,8 +127,13 @@ def relu_forward(x):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    pass
-
+    out = x.copy()
+    with np.nditer(x, flags=["multi_index"]) as it:
+        for k in it:
+            idx = it.multi_index
+            if k < 0:
+                out[idx] = 0
+    
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
     #                             END OF YOUR CODE                            #
