@@ -76,6 +76,9 @@ def affine_backward(dout, cache):
         x[idx] = old_value
         dx[idx] = np.sum((pos - neg) * dout) / (2*h)
             
+        print("pos\n", pos)
+        print("neg\n", neg)
+        
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
