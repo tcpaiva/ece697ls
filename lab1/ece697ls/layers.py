@@ -164,14 +164,10 @@ def relu_backward(dout, cache):
     dx = np.zeros_like(x)
     with np.nditer(x, flags=["multi_index"], op_flags=['readwrite']) as it:
         for k in it:
-            idx = it.multi_index
-            old_value = x[idx]
-            x[idx] = old_value + h
-            pos, _ = relu_forward(x)
-            x[idx] = old_value - h
-            neg, _ = relu_forward(x)
-            x[idx] = old_value
-            dx[idx] = np.sum((pos - neg) * dout) / (2*h)
+            if k < 0:
+                dx[idx] = 0
+            else:
+                dx[idx] = 1
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
