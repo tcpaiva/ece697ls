@@ -168,7 +168,7 @@ def relu_backward(dout, cache):
             if k < 0:
                 dx[idx] = 0
             else:
-                dx[idx] = 1
+                dx[idx] = -1
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
