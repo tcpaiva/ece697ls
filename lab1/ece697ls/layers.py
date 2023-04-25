@@ -167,8 +167,6 @@ def relu_backward(dout, cache):
             idx = it.multi_index
             if k < 0:
                 dx[idx] = 0
-            else:
-                dx[idx] = -1
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
