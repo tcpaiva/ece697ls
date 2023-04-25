@@ -165,8 +165,10 @@ def relu_backward(dout, cache):
     with np.nditer(x, flags=["multi_index"], op_flags=['readwrite']) as it:
         for k in it:
             idx = it.multi_index
-            if k < 0:
+            if k <= 0:
                 dx[idx] = 0
+            else:
+                dx[idx] = 1
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
